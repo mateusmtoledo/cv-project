@@ -1,0 +1,91 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  font-size: 16px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+#preview-container {
+  background-color: lightgray;
+  height: 80vh;
+  width: 80vh;
+  overflow: hidden;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+
+#cv-preview {
+  background-color: white;
+  height: 29.7cm;
+  width: 21cm;
+  flex: 0 0 auto;
+  transform: scale(0.5);
+}
+
+#cv-preview .education-info, #cv-preview .work-info {
+  padding: 1cm;
+}
+
+#cv-preview .general-info {
+  background-color: #023047;
+  color: #ffffff;
+  padding: 1cm 1cm;
+}
+
+#cv-preview .person-name {
+  font-size: 28pt;
+  font-weight: bold;
+}
+
+#cv-preview .occupation {
+  font-size: 18pt;
+  font-weight: bold;
+  margin-bottom: 1cm;
+}
+
+#cv-preview .icon-and-text {
+  display: flex;
+  align-items: center;
+  gap: 0.3cm;
+}
+
+#cv-preview .course, .job {
+  display: flex;
+}
+
+#cv-preview .date {
+  margin-right: 1cm;
+}
+
+#cv-preview p, #cv-preview li {
+  font-size: 12pt;
+  margin: 0.2cm 0cm;
+}
+
+#cv-preview h2 {
+  font-size: 18pt;
+}
+
+#cv-preview .heading {
+  display: flex;
+  gap: 0.3cm;
+  margin-bottom: 0.3cm;
+}
+
+#cv-preview ul {
+  list-style-position: inside;
+  padding-left: 0.2cm;
+}

@@ -6,10 +6,12 @@ import WorkExperience from "./workExperience";
 class CvPreview extends Component {
   render() {
     return (
-    <div>
-      <GeneralInformation />
-      <Education />
-      <WorkExperience />
+    <div id="preview-container">
+      <div id="cv-preview">
+        <GeneralInformation />
+        <Education />
+        <WorkExperience />
+      </div>
     </div>
     );
   }

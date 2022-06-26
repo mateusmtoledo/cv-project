@@ -16,7 +16,7 @@ class IconAndText extends Component {
   render() {
     return (
       <div className="icon-and-text">
-        <img width="24px" src={this.icons[this.props.type]} alt={this.props.type}/>
+        <img width="20px" src={this.icons[this.props.type]} alt={this.props.type}/>
         <p>{this.props.value}</p>
       </div>
     );
