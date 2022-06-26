@@ -4,7 +4,7 @@ import DateComponent from "./date";
 class Course extends Component {
   render() {
     return (
-      <div>
+      <div className="course">
         <DateComponent />
         <div>
           <p>University of Oxford</p>

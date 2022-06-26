@@ -1,6 +1,7 @@
 import { Component } from "react";
 import GeneralInformation from "./generalInformation";
 import Education from "./education";
+import WorkExperience from "./workExperience";
 
 class CvPreview extends Component {
   render() {
@@ -8,6 +9,7 @@ class CvPreview extends Component {
     <div>
       <GeneralInformation />
       <Education />
+      <WorkExperience />
     </div>
     );
   }
