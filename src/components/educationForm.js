@@ -10,6 +10,7 @@ class EducationForm extends Component {
       course: '',
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -19,9 +20,17 @@ class EducationForm extends Component {
     this.setState(obj);
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    const obj = {
+      ...this.state,
+    }
+    this.props.addNewInfo('educationInfo', obj);
+  }
+
   render() {
     return (
-      <form className="education-form">
+      <form className="education-form" onSubmit={this.handleSubmit}>
         <p>
           <label htmlFor="start-date">Start Date</label>
           <input name="startDate" value={this.state.startDate} type="date" id="start-date" onChange={this.handleChange} />
