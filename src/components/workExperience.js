@@ -6,7 +6,7 @@ class WorkExperience extends Component {
   render() {
     return (
       <div className="work-info">
-        <div class="heading">
+        <div className="heading">
           <img className="icon" src={WORK_ICON} alt="Work Experience" width="24px" height="24px" />
           <h2>Work Experience</h2>
         </div>

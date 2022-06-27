@@ -6,7 +6,7 @@ class Education extends Component {
   render() {
     return (
       <div className="education-info">
-        <div class="heading">
+        <div className="heading">
           <img className="icon" src={EDUCATION_ICON} alt="Education" width="24px" height="24px" />
           <h2>Education</h2>
         </div>
