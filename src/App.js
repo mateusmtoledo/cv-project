@@ -1,11 +1,11 @@
 import { Component } from "react";
-import CvPreview from "./components/cvPreview";
+import CvGenerator from "./components/cvGenerator";
 
 class App extends Component {
   render() {
     return (
       <main>
-        <CvPreview />
+        <CvGenerator />
       </main>
     );
   }
