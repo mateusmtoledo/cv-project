@@ -17,7 +17,10 @@ class IconAndText extends Component {
     return (
       <div className="icon-and-text">
         <img width="20px" src={this.icons[this.props.type]} alt={this.props.type}/>
-        <p>{this.props.value}</p>
+        {this.props.edit
+        ? <input></input>
+        : <p>{this.props.value}</p>
+        }
       </div>
     );
   }
