@@ -35,11 +35,11 @@ class WorkForm extends Component {
       <form className="education-form" onSubmit={this.handleSubmit}>
         <p>
           <label htmlFor="start-date">Start Date</label>
-          <input name="startDate" value={this.state.startDate} type="date" id="start-date" onChange={this.handleChange} />
+          <input name="startDate" value={this.state.startDate} type="month" id="start-date" onChange={this.handleChange} />
         </p>
         <p>
           <label htmlFor="end-date">End Date</label>
-          <input name="endDate" value={this.state.endDate} type="date" id="end-date" onChange={this.handleChange} />
+          <input name="endDate" value={this.state.endDate} type="month" id="end-date" onChange={this.handleChange} />
         </p>
         <p>
           <label htmlFor="role">Role</label>
