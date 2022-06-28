@@ -1,4 +1,5 @@
 import { Component } from "react";
+import CourseInfo from "./courseInfo";
 import DateComponent from "./date";
 
 class Course extends Component {
@@ -6,10 +7,7 @@ class Course extends Component {
     return (
       <div className="course">
         <DateComponent endDate={this.props.course.endDate} startDate={this.props.course.startDate} />
-        <div>
-          <p>{this.props.course.institution}</p>
-          <p>{this.props.course.degree}</p>
-        </div>
+        <CourseInfo course={this.props.course} />
       </div>
     );
   }

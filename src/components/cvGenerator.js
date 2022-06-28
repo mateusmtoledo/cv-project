@@ -19,7 +19,6 @@ class CvGenerator extends Component {
       returnObject[type] = prev[type].concat(obj);
       return returnObject;
     });
-    console.log(this.state);
   }
 
   render() {
