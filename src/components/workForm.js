@@ -1,4 +1,5 @@
 import { Component } from "react";
+import uniqid from "uniqid";
 
 class WorkForm extends Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class WorkForm extends Component {
     event.preventDefault();
     const obj = {
       ...this.state,
+      id: uniqid(),
     }
     this.props.addNewInfo('workInfo', obj);
   }

@@ -1,4 +1,5 @@
 import { Component } from "react";
+import uniqid from "uniqid";
 
 class EducationForm extends Component {
   constructor(props) {
@@ -7,7 +8,7 @@ class EducationForm extends Component {
       startDate: '',
       endDate: '',
       institution: '',
-      course: '',
+      degree: '',
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,6 +25,7 @@ class EducationForm extends Component {
     event.preventDefault();
     const obj = {
       ...this.state,
+      id: uniqid(),
     }
     this.props.addNewInfo('educationInfo', obj);
   }
@@ -44,8 +46,8 @@ class EducationForm extends Component {
           <input name="institution" value={this.state.institution} type="text" id="institution" onChange={this.handleChange} />
         </p>
         <p>
-          <label htmlFor="course">Course</label>
-          <input name="course" value={this.state.course} type="text" id="course" onChange={this.handleChange}></input>
+          <label htmlFor="degree">Degree</label>
+          <input name="degree" value={this.state.degree} type="text" id="degree" onChange={this.handleChange}></input>
         </p>
         <button>Add</button>
       </form>

@@ -29,7 +29,7 @@ class CvGenerator extends Component {
           <EducationForm addNewInfo={this.addNewInfo} />
           <WorkForm addNewInfo={this.addNewInfo} />
         </div>
-        <CvPreview />
+        <CvPreview educationInfo={this.state.educationInfo} workInfo={this.state.workInfo} />
       </>
     );
   }

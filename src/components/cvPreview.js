@@ -16,8 +16,8 @@ class CvPreview extends Component {
       <div className="cv-preview-container">
         <div id="cv-preview">
           <GeneralInformation />
-          <Education />
-          <WorkExperience />
+          <Education educationInfo={this.props.educationInfo} />
+          <WorkExperience workInfo={this.props.workInfo} />
         </div>
       </div>
     </ScrollContainer>

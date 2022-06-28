@@ -10,7 +10,9 @@ class Education extends Component {
           <img className="icon" src={EDUCATION_ICON} alt="Education" width="24px" height="24px" />
           <h2>Education</h2>
         </div>
-        <Course />
+          {this.props.educationInfo.map(course => {
+            return <Course key={course.id} course={course} />
+          })}
       </div>
     );
   }

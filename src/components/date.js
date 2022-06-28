@@ -4,7 +4,7 @@ class DateComponent extends Component {
   render() {
     return (
       <div className="date">
-        <p>2020-2022</p>
+        <p>{`${this.props.startDate} - ${this.props.endDate}`}</p>
       </div>
     );
   }

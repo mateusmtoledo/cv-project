@@ -10,7 +10,11 @@ class WorkExperience extends Component {
           <img className="icon" src={WORK_ICON} alt="Work Experience" width="24px" height="24px" />
           <h2>Work Experience</h2>
         </div>
-        <Job />
+        <div>
+          {this.props.workInfo.map(job => {
+            return <Job key={job.id} job={job} />
+          })}
+        </div>
       </div>
     );
   }

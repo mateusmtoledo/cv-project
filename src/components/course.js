@@ -5,10 +5,10 @@ class Course extends Component {
   render() {
     return (
       <div className="course">
-        <DateComponent />
+        <DateComponent endDate={this.props.course.endDate} startDate={this.props.course.startDate} />
         <div>
-          <p>University of Oxford</p>
-          <p>Bachelor of Computer Science</p>
+          <p>{this.props.course.institution}</p>
+          <p>{this.props.course.degree}</p>
         </div>
       </div>
     );
