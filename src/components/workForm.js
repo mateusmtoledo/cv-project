@@ -33,23 +33,27 @@ class WorkForm extends Component {
   render() {
     return (
       <form className="education-form" onSubmit={this.handleSubmit}>
-        <p>
+        <h2>Add Work Experience</h2>
+        <p className="input-container">
           <label htmlFor="start-date">Start Date</label>
           <input name="startDate" value={this.state.startDate} type="month" id="start-date" onChange={this.handleChange} />
         </p>
-        <p>
+        <p className="input-container">
           <label htmlFor="end-date">End Date</label>
           <input name="endDate" value={this.state.endDate} type="month" id="end-date" onChange={this.handleChange} />
         </p>
-        <p>
+        <p className="input-container">
           <label htmlFor="role">Role</label>
           <input name="role" value={this.state.role} type="text" id="role" onChange={this.handleChange}></input>
         </p>
-        <p>
+        <p className="input-container">
           <label htmlFor="company">Company</label>
           <input name="company" value={this.state.company} type="text" id="company" onChange={this.handleChange} />
         </p>
-        <button>Add</button>
+        <div className="buttons">
+          <button type="button">Clear</button>
+          <button>Submit</button>
+        </div>
       </form>
     );
   }

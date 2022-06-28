@@ -1,5 +1,8 @@
 import { Component } from "react";
 import IconAndText from "./iconAndText";
+import CANCEL_ICON from "../icons/cancel.svg";
+import SAVE_ICON from "../icons/save.svg";
+import EDIT_WHITE_ICON from "../icons/edit-white.svg";
 
 class generalInformation extends Component {
   constructor(props) {
@@ -25,13 +28,23 @@ class generalInformation extends Component {
       <div className="general-info">
         {this.state.edit
         ? <>
-            <button type="button" onClick={this.toggleEdit}>Cancel</button>
-            <button type="button">Save</button>
+            <div className="buttons">
+              <button type="button" onClick={this.toggleEdit}>
+                <img width="32px" height="32px" src={CANCEL_ICON} alt="Cancel" />
+              </button>
+              <button type="button">
+                <img width="32px" height="32px" src={SAVE_ICON} alt="Save" />
+              </button>
+            </div>
             <input className="person-name" defaultValue={this.state.personName} />
             <input className="occupation" defaultValue={this.state.occupation} />
           </>
         : <>
-            <button type="button" onClick={this.toggleEdit}>Edit</button>
+            <div className="buttons">
+              <button type="button" onClick={this.toggleEdit}>
+                <img width="32px" height="32px" src={EDIT_WHITE_ICON} alt="Edit" />
+              </button>
+            </div>
             <p className="person-name">{this.state.personName}</p>
             <p className="occupation">{this.state.occupation}</p>
           </>}

@@ -9,10 +9,58 @@
 
 main {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  min-height: 100vh;
+}
+
+.forms {
+  display: flex;
+  flex-direction: column;
+  background-color: #023047;
+  padding: 16px;
+  color: white;
+  gap: 32px;
+}
+
+.forms h2 {
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+.forms p {
+  margin-bottom: 8px;
+}
+
+.forms .buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.forms button {
+  padding: 4px 0;
+  width: 64px;
+  border-radius: 4px;
+  border: 1px solid #023047;
+  background-color: white;
+}
+
+.forms button:active {
+  position: relative;
+  left: 1px;
+  top: 1px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container label {
+  font-size: 0.9rem;
+}
+
+.input-container input[type="month"] {
+  width: min-content;
 }
 
 .scroll-container {
@@ -50,9 +98,32 @@ main {
 }
 
 #cv-preview .general-info {
+  position: relative;
   background-color: #023047;
   color: #ffffff;
   padding: 1cm 1cm;
+}
+
+#cv-preview .buttons {
+  display: flex;
+  gap: 0.3cm;
+  position: absolute;
+  top: 1cm;
+  right: 1cm;
+}
+
+#cv-preview button {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0;
+}
+
+#cv-preview input {
+  border: none;
+  outline: none;
+  border-radius: 0.2em;
+  padding: 0 0.1cm;
 }
 
 #cv-preview .person-name {
@@ -80,7 +151,7 @@ main {
   margin-right: 1cm;
 }
 
-#cv-preview p, #cv-preview li {
+#cv-preview p, #cv-preview li, #cv-preview input {
   font-size: 12pt;
   margin: 0.2cm 0cm;
 }

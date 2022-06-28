@@ -33,23 +33,27 @@ class EducationForm extends Component {
   render() {
     return (
       <form className="education-form" onSubmit={this.handleSubmit}>
-        <p>
+        <h2>Add Education Information</h2>
+        <p className="input-container">
           <label htmlFor="start-date">Start Date</label>
           <input name="startDate" value={this.state.startDate} type="month" id="start-date" onChange={this.handleChange} />
         </p>
-        <p>
+        <p className="input-container">
           <label htmlFor="end-date">End Date</label>
           <input name="endDate" value={this.state.endDate} type="month" id="end-date" onChange={this.handleChange} />
         </p>
-        <p>
+        <p className="input-container">
           <label htmlFor="institution">Institution</label>
           <input name="institution" value={this.state.institution} type="text" id="institution" onChange={this.handleChange} />
         </p>
-        <p>
+        <p className="input-container">
           <label htmlFor="degree">Degree</label>
           <input name="degree" value={this.state.degree} type="text" id="degree" onChange={this.handleChange}></input>
         </p>
-        <button>Add</button>
+        <div className="buttons">
+          <button type="button">Clear</button>
+          <button>Submit</button>
+        </div>
       </form>
     );
   }
