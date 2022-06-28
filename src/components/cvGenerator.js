@@ -24,13 +24,13 @@ class CvGenerator extends Component {
 
   render() {
     return (
-      <>
+      <main>
         <div className="forms">
           <EducationForm addNewInfo={this.addNewInfo} />
           <WorkForm addNewInfo={this.addNewInfo} />
         </div>
         <CvPreview educationInfo={this.state.educationInfo} workInfo={this.state.workInfo} />
-      </>
+      </main>
     );
   }
 }
