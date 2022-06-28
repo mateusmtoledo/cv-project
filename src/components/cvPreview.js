@@ -12,7 +12,7 @@ class CvPreview extends Component {
   }
   render() {
     return (
-    <ScrollContainer className="scroll-container preview-container">
+    <ScrollContainer className="scroll-container" ignoreElements="input, button">
       <div className="cv-preview-container">
         <div id="cv-preview">
           <GeneralInformation />
