@@ -12,11 +12,20 @@ class DateComponent extends Component {
     this.endDate = new Date(this.props.endDate).toLocaleDateString('en-US', this.options);
   }
   render() {
-    return (
-      <div className="date">
-        <p>{`${this.startDate} - ${this.endDate}`}</p>
-      </div>
-    );
+    if (this.props.edit) {
+      return (
+        <div className="date">
+          <input type="month" />
+          <input type="month" />
+        </div>
+      );
+    } else {
+      return (
+        <div className="date">
+          <p>{`${this.startDate} - ${this.endDate}`}</p>
+        </div>
+      );
+    }
   }
 }
 

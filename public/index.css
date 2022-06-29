@@ -125,7 +125,7 @@ main {
   padding: 1cm 1cm;
 }
 
-#cv-preview .buttons {
+#cv-preview .general-info .buttons {
   display: flex;
   gap: 0.3cm;
   position: absolute;
@@ -141,10 +141,15 @@ main {
 }
 
 #cv-preview input {
+  display: block;
   border: none;
   outline: none;
   border-radius: 0.2em;
   padding: 0 0.1cm;
+}
+
+#cv-preview .education-info input, #cv-preview .work-info input {
+  outline: 1px solid black;
 }
 
 #cv-preview .person-name {
@@ -164,8 +169,17 @@ main {
   gap: 0.3cm;
 }
 
-#cv-preview .course, .job {
+#cv-preview .course, #cv-preview .job {
   display: flex;
+  position: relative;
+}
+
+#cv-preview .course .buttons, #cv-preview .job .buttons {
+  display: flex;
+  gap: 0.3cm;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 #cv-preview .date {
