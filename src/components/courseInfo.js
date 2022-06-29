@@ -5,15 +5,15 @@ class CourseInfo extends Component {
     if(this.props.edit) {
       return (
         <div className="course-info">
-          <input className="institution" />
-          <input className="degree" />
+          <input name="institution" className="institution" value={this.props.institution} onChange={this.props.handleChange} />
+          <input name="degree" className="degree" value={this.props.degree} onChange={this.props.handleChange} />
         </div>
       );
     } else {
       return (
         <div className="course-info">
-          <p className="institution">{this.props.course.institution}</p>
-          <p className="degree">{this.props.course.degree}</p>
+          <p className="institution">{this.props.institution}</p>
+          <p className="degree">{this.props.degree}</p>
         </div>
       );
     }

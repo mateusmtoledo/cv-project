@@ -8,21 +8,21 @@ class DateComponent extends Component {
       month: 'short',
       year: 'numeric',
     };
-    this.startDate = new Date(this.props.startDate).toLocaleDateString('en-US', this.options);
-    this.endDate = new Date(this.props.endDate).toLocaleDateString('en-US', this.options);
   }
   render() {
+    const startDate = new Date(this.props.startDate).toLocaleDateString('en-US', this.options);
+    const endDate = new Date(this.props.endDate).toLocaleDateString('en-US', this.options);
     if (this.props.edit) {
       return (
         <div className="date">
-          <input type="month" />
-          <input type="month" />
+          <input name="startDate" type="month" value={this.props.startDate} onChange={this.props.handleChange} />
+          <input name="endDate" type="month" value={this.props.endDate} onChange={this.props.handleChange} />
         </div>
       );
     } else {
       return (
         <div className="date">
-          <p>{`${this.startDate} - ${this.endDate}`}</p>
+          <p>{`${startDate} - ${endDate}`}</p>
         </div>
       );
     }

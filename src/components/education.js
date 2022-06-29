@@ -11,7 +11,12 @@ class Education extends Component {
           <h2>Education</h2>
         </div>
           {this.props.educationInfo.map(course => {
-            return <Course key={course.id} course={course} />
+            return <Course
+              key={course.id}
+              course={course}
+              deleteInfo={() => this.props.deleteInfo(course.id)}
+              editInfo={(obj) => this.props.editInfo(course.id, obj)}
+            />
           })}
       </div>
     );

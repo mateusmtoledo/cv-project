@@ -1,3 +1,4 @@
+import React from "react";
 import { Component } from "react";
 import LINKEDIN_ICON from "../icons/linkedin.svg";
 import EMAIL_ICON from "../icons/email.svg";
@@ -18,7 +19,7 @@ class IconAndText extends Component {
       <div className="icon-and-text">
         <img width="20px" src={this.icons[this.props.type]} alt={this.props.type}/>
         {this.props.edit
-        ? <input></input>
+        ? <input ref={this.props.forwardRef} defaultValue={this.props.value} />
         : <p>{this.props.value}</p>
         }
       </div>
@@ -26,4 +27,4 @@ class IconAndText extends Component {
   }
 }
 
-export default IconAndText;
+export default React.forwardRef((props,ref) => <IconAndText {...props} forwardRef={ref} />);

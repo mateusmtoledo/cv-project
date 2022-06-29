@@ -11,6 +11,8 @@ class CvGenerator extends Component {
       workInfo: [],
     }
     this.addNewInfo = this.addNewInfo.bind(this);
+    this.deleteInfo = this.deleteInfo.bind(this);
+    this.editInfo = this.editInfo.bind(this);
   }
 
   addNewInfo(type, obj) {
@@ -21,6 +23,22 @@ class CvGenerator extends Component {
     });
   }
 
+  deleteInfo(type, id) {
+    const newArr = this.state[type].filter((element) => element.id !== id);
+    this.setState({
+      [type]: newArr,
+    });
+  }
+
+  editInfo(type, id, obj) {
+    const index = this.state[type].findIndex((el) => el.id === id);
+    this.setState((prev) => {
+      const newState = {...prev};
+      newState[type][index] = { ...newState[type][index], ...obj};
+      return newState;
+    });
+  }
+
   render() {
     return (
       <main>
@@ -28,7 +46,7 @@ class CvGenerator extends Component {
           <EducationForm addNewInfo={this.addNewInfo} />
           <WorkForm addNewInfo={this.addNewInfo} />
         </div>
-        <CvPreview educationInfo={this.state.educationInfo} workInfo={this.state.workInfo} />
+        <CvPreview educationInfo={this.state.educationInfo} workInfo={this.state.workInfo} deleteInfo={this.deleteInfo} editInfo={this.editInfo} />
       </main>
     );
   }

@@ -12,7 +12,12 @@ class WorkExperience extends Component {
         </div>
         <div>
           {this.props.workInfo.map(job => {
-            return <Job key={job.id} job={job} />
+            return <Job
+              key={job.id}
+              job={job}
+              deleteInfo={() => this.props.deleteInfo(job.id)}
+              editInfo={(obj) => this.props.editInfo(job.id, obj)}
+            />
           })}
         </div>
       </div>

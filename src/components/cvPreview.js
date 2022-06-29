@@ -16,8 +16,16 @@ class CvPreview extends Component {
       <div className="cv-preview-container">
         <div id="cv-preview">
           <GeneralInformation />
-          <Education educationInfo={this.props.educationInfo} />
-          <WorkExperience workInfo={this.props.workInfo} />
+          <Education
+            educationInfo={this.props.educationInfo}
+            deleteInfo={(id) => this.props.deleteInfo('educationInfo', id)}
+            editInfo={(id, obj) => this.props.editInfo('educationInfo', id, obj)}
+            />
+          <WorkExperience
+            workInfo={this.props.workInfo}
+            deleteInfo={(id) => this.props.deleteInfo('workInfo', id)}
+            editInfo={(id, obj) => this.props.editInfo('workInfo', id, obj)}
+          />
         </div>
       </div>
     </ScrollContainer>
