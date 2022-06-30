@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gantari:wght@300&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -7,12 +8,25 @@
 
 :root {
   font-size: 16px;
+  font-family: 'Gantari', sans-serif;
+}
+
+input, textarea, button {
+  font-family: inherit;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   padding: 8px 16px;
+  background-color: #0A0A0A;
+  color: white;
 }
 
 header h1 {
@@ -24,28 +38,41 @@ header h1 {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: black;
   text-decoration: none;
+  color: white;
 }
 
 main {
   display: flex;
+  justify-content: space-between;
   align-items: stretch;
+  flex: 1;
+}
+
+.center-content {
+  display: flex;
+  flex: 1;
   justify-content: center;
 }
 
 .forms {
   display: flex;
+  flex: 0 1 400px;
   flex-direction: column;
-  background-color: #023047;
-  padding: 16px;
+  justify-content: space-around;
+  padding: 0 32px;
+  background-color: #3f4652;
   color: white;
-  gap: 32px;
 }
 
 .forms h2 {
-  margin-bottom: 8px;
-  font-size: 1.2rem;
+  margin-bottom: 16px;
+  font-size: 1.3rem;
+  background-color: #272c33;
+  width: 100%;
+  padding: 8px 0;
+  border-radius: 8px;
+  text-align: center;
 }
 
 .forms .buttons {
@@ -94,25 +121,15 @@ main {
 }
 
 .scroll-container {
-  background-color: lightgray;
-  height: 80vh;
-  width: 75vh;
+  background-color: #ebeced;
   overflow: hidden;
   padding: 0;
-  border: 2px solid rgb(93, 93, 93);
   cursor: grab;
+  flex: 1 0 530px;
 }
 
 .scroll-container:active {
   cursor: grabbing;
-}
-
-#cv-preview {
-  background-color: white;
-  height: 29.7cm;
-  width: 21cm;
-  transform: scale(0.6);
-  overflow: hidden;
 }
 
 .cv-preview-container {
@@ -121,6 +138,17 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+#cv-preview {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+  height: 29.7cm;
+  width: 21cm;
+  transform: scale(0.6);
+  overflow: hidden;
+  position: absolute;
 }
 
 #cv-preview .education-info, #cv-preview .work-info {

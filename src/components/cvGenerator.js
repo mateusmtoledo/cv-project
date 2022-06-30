@@ -74,13 +74,15 @@ class CvGenerator extends Component {
             <img width="24px" height="24px" src={PDF_ICON} alt="Export as PDF" />
           </button>
         </div>
-        <CvPreview
-          educationInfo={this.state.educationInfo}
-          workInfo={this.state.workInfo}
-          deleteInfo={this.deleteInfo}
-          editInfo={this.editInfo}
-          exportMode={this.state.exportMode}
-        />
+        <div className="center-content">
+          <CvPreview
+            educationInfo={this.state.educationInfo}
+            workInfo={this.state.workInfo}
+            deleteInfo={this.deleteInfo}
+            editInfo={this.editInfo}
+            exportMode={this.state.exportMode}
+          />
+        </div>
       </main>
     );
   }
