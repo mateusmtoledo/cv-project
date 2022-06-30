@@ -14,12 +14,16 @@ class IconAndText extends Component {
     }
   }
 
+  capitalize(string) {
+    return (string.slice(0, 1).toUpperCase() + string.slice(1).toLowerCase());
+  }
+
   render() {
     return (
       <div className="icon-and-text">
         <img width="20px" src={this.icons[this.props.type]} alt={this.props.type}/>
         {this.props.edit
-        ? <input ref={this.props.forwardRef} defaultValue={this.props.value} />
+        ? <input ref={this.props.forwardRef} defaultValue={this.props.value} placeholder={this.capitalize(this.props.type)} required />
         : <p>{this.props.value}</p>
         }
       </div>

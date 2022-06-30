@@ -178,12 +178,12 @@ main {
   gap: 0.3cm;
 }
 
-#cv-preview .course, #cv-preview .job {
+#cv-preview .data {
   display: flex;
   position: relative;
 }
 
-#cv-preview .course .buttons, #cv-preview .job .buttons {
+#cv-preview .data .buttons {
   display: flex;
   gap: 0.3cm;
   position: absolute;

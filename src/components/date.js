@@ -15,8 +15,8 @@ class DateComponent extends Component {
     if (this.props.edit) {
       return (
         <div className="date">
-          <input name="startDate" type="month" value={this.props.startDate} onChange={this.props.handleChange} />
-          <input name="endDate" type="month" value={this.props.endDate} onChange={this.props.handleChange} />
+          <input name="startDate" type="month" value={this.props.startDate} onChange={this.props.handleChange} required />
+          <input name="endDate" type="month" value={this.props.endDate} onChange={this.props.handleChange} required />
         </div>
       );
     } else {

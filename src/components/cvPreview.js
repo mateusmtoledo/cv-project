@@ -36,16 +36,18 @@ class CvPreview extends Component {
     <ScrollContainer className="scroll-container" ignoreElements="input, button">
       <div className="cv-preview-container" onWheel={this.zoom}>
         <div id="cv-preview" ref={this.cvPreviewElement}>
-          <GeneralInformation />
+          <GeneralInformation exportMode={this.props.exportMode} />
           <Education
             educationInfo={this.props.educationInfo}
             deleteInfo={(id) => this.props.deleteInfo('educationInfo', id)}
             editInfo={(id, obj) => this.props.editInfo('educationInfo', id, obj)}
-            />
+            exportMode={this.props.exportMode}
+          />
           <WorkExperience
             workInfo={this.props.workInfo}
             deleteInfo={(id) => this.props.deleteInfo('workInfo', id)}
             editInfo={(id, obj) => this.props.editInfo('workInfo', id, obj)}
+            exportMode={this.props.exportMode}
           />
         </div>
       </div>

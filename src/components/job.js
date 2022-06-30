@@ -32,7 +32,8 @@ class Job extends Component {
     this.toggleEdit();
   }
 
-  saveEdit() {
+  saveEdit(e) {
+    e.preventDefault();
     this.props.editInfo({
       startDate: this.state.startDate,
       endDate: this.state.endDate,
@@ -58,30 +59,32 @@ class Job extends Component {
   render() {
     const { startDate, endDate, company, role } = this.state;
     return (
-      <div className="job">
-        <div className="buttons">
-          {this.state.edit
-            ? <>
-                <button>
-                  <img src={CANCEL_ICON} alt="Cancel" onClick={this.cancelEdit} />
-                </button>
-                <button>
-                  <img src={SAVE_ICON} alt="Save" onClick={this.saveEdit} />
-                </button>
-              </>
-            : <>
-                <button>
-                  <img src={EDIT_BLACK_ICON} alt="Edit" onClick={this.toggleEdit} />
-                </button>
-                <button>
-                  <img src={DELETE_ICON} alt="Delete" onClick={() => this.props.deleteInfo(this.props.job.id)} />
-                </button>
-              </>
-          }
+      <form onSubmit={this.saveEdit}>
+        <div className="data">
+          <div className="buttons">
+            {this.state.edit
+              ? <>
+                  <button type="button" onClick={this.cancelEdit}>
+                    <img src={CANCEL_ICON} alt="Cancel" />
+                  </button>
+                  <button type="submit">
+                    <img src={SAVE_ICON} alt="Save" />
+                  </button>
+                </>
+              : <>
+                  <button type="button" onClick={this.toggleEdit} style={{display: this.props.exportMode ? 'none' : null }}>
+                    <img src={EDIT_BLACK_ICON} alt="Edit" />
+                  </button>
+                  <button type="button" onClick={() => this.props.deleteInfo(this.props.job.id)} style={{display: this.props.exportMode ? 'none' : null }}>
+                    <img src={DELETE_ICON} alt="Delete" />
+                  </button>
+                </>
+            }
+          </div>
+          <DateComponent edit={this.state.edit} startDate={startDate} endDate={endDate} handleChange={this.handleChange} />
+          <JobInfo edit={this.state.edit} company={company} role={role} handleChange={this.handleChange} />
         </div>
-        <DateComponent edit={this.state.edit} startDate={startDate} endDate={endDate} handleChange={this.handleChange} />
-        <JobInfo edit={this.state.edit} company={company} role={role} handleChange={this.handleChange} />
-      </div>
+      </form>
     );
   }
 }

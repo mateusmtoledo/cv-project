@@ -12,6 +12,7 @@ class CvGenerator extends Component {
     this.state = {
       educationInfo: [],
       workInfo: [],
+      exportMode: false,
     }
     this.addNewInfo = this.addNewInfo.bind(this);
     this.deleteInfo = this.deleteInfo.bind(this);
@@ -50,13 +51,16 @@ class CvGenerator extends Component {
       return;
     }
     input.style.transform = 'scale(1)';
-    html2canvas(input).then((canvas) => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF();
-      pdf.addImage(imgData, 'JPEG', 0, 0);
-      pdf.save("cv.pdf");
+    this.setState({ exportMode: true }, () => {
+      html2canvas(input).then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF();
+        pdf.addImage(imgData, 'JPEG', 0, 0);
+        pdf.save("cv.pdf");
+        input.style.removeProperty('transform');
+        this.setState({ exportMode: false });
+      });
     });
-    input.style.removeProperty('transform');
   }
 
   render() {
@@ -70,7 +74,13 @@ class CvGenerator extends Component {
             <img width="24px" height="24px" src={PDF_ICON} alt="Export as PDF" />
           </button>
         </div>
-        <CvPreview educationInfo={this.state.educationInfo} workInfo={this.state.workInfo} deleteInfo={this.deleteInfo} editInfo={this.editInfo} />
+        <CvPreview
+          educationInfo={this.state.educationInfo}
+          workInfo={this.state.workInfo}
+          deleteInfo={this.deleteInfo}
+          editInfo={this.editInfo}
+          exportMode={this.state.exportMode}
+        />
       </main>
     );
   }

@@ -36,19 +36,19 @@ class EducationForm extends Component {
         <h2>Add Education Information</h2>
         <p className="input-container">
           <label htmlFor="start-date">Start Date</label>
-          <input name="startDate" value={this.state.startDate} type="month" id="start-date" onChange={this.handleChange} />
+          <input required name="startDate" value={this.state.startDate} type="month" id="start-date" onChange={this.handleChange} />
         </p>
         <p className="input-container">
           <label htmlFor="end-date">End Date</label>
-          <input name="endDate" value={this.state.endDate} type="month" id="end-date" onChange={this.handleChange} />
+          <input required name="endDate" value={this.state.endDate} type="month" id="end-date" onChange={this.handleChange} />
         </p>
         <p className="input-container">
           <label htmlFor="institution">Institution</label>
-          <input name="institution" value={this.state.institution} type="text" id="institution" onChange={this.handleChange} />
+          <input required name="institution" value={this.state.institution} type="text" id="institution" onChange={this.handleChange} />
         </p>
         <p className="input-container">
           <label htmlFor="degree">Degree</label>
-          <input name="degree" value={this.state.degree} type="text" id="degree" onChange={this.handleChange}></input>
+          <input required name="degree" value={this.state.degree} type="text" id="degree" onChange={this.handleChange}></input>
         </p>
         <div className="buttons">
           <button type="button">Clear</button>

@@ -17,6 +17,7 @@ class WorkExperience extends Component {
               job={job}
               deleteInfo={() => this.props.deleteInfo(job.id)}
               editInfo={(obj) => this.props.editInfo(job.id, obj)}
+              exportMode={this.props.exportMode}
             />
           })}
         </div>

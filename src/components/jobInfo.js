@@ -5,8 +5,8 @@ class JobInfo extends Component {
     if(this.props.edit) {
       return (
         <div className="job-info">
-          <input name="role" value={this.props.role} className="role" onChange={this.props.handleChange} />
-          <input name="company" value={this.props.company} className="company" onChange={this.props.handleChange} />
+          <input name="role" value={this.props.role} className="role" onChange={this.props.handleChange} required />
+          <input name="company" value={this.props.company} className="company" onChange={this.props.handleChange} required />
           <ul className="tasks"></ul>
         </div>
       );

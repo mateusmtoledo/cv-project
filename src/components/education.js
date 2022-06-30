@@ -16,6 +16,7 @@ class Education extends Component {
               course={course}
               deleteInfo={() => this.props.deleteInfo(course.id)}
               editInfo={(obj) => this.props.editInfo(course.id, obj)}
+              exportMode={this.props.exportMode}
             />
           })}
       </div>
