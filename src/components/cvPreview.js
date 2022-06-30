@@ -3,6 +3,8 @@ import GeneralInformation from "./generalInformation";
 import Education from "./education";
 import WorkExperience from "./workExperience";
 import ScrollContainer from "react-indiana-drag-scroll";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
 class CvPreview extends Component {
   constructor(props) {
@@ -12,6 +14,7 @@ class CvPreview extends Component {
     }
     this.cvPreviewElement = React.createRef();
     this.zoom = this.zoom.bind(this);
+    this.exportPdf = this.exportPdf.bind(this);
   }
 
   componentDidMount() {
@@ -29,6 +32,18 @@ class CvPreview extends Component {
       scale: newScale,
     });
     element.style.transform = `scale(${newScale})`;
+  }
+
+  exportPdf() {
+    const input = this.cvPreviewElement.current;
+    input.style.transform = 'scale(1)';
+    html2canvas(this.cvPreviewElement.current).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF();
+      pdf.addImage(imgData, 'JPEG', 0, 0);
+      pdf.save("cv.pdf");
+    });
+    input.style.transform = `scale(${this.state.scale})`;
   }
 
   render() {
