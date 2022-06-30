@@ -45,6 +45,10 @@ class CvGenerator extends Component {
 
   exportPdf() {
     const input = document.getElementById('cv-preview');
+    if(input.querySelector('input') !== null) {
+      alert('You must save all changes before exporting!');
+      return;
+    }
     input.style.transform = 'scale(1)';
     html2canvas(input).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
