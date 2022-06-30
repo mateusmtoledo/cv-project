@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gantari:wght@300&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  font-size: 16px;
+  font-family: 'Gantari', sans-serif;
+}
+
+input, textarea, button {
+  font-family: inherit;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background-color: #0A0A0A;
+  color: white;
+}
+
+header h1 {
+  font-size: 1.4rem;
+  font-family: 'Kalam', cursive;
+}
+
+.github-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: white;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex: 1;
+}
+
+.center-content {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.forms {
+  display: flex;
+  flex: 0 1 400px;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0 32px;
+  background-color: #3f4652;
+  color: white;
+}
+
+.forms h2 {
+  margin-bottom: 16px;
+  font-size: 1.3rem;
+  background-color: #272c33;
+  width: 100%;
+  padding: 8px 0;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.forms .buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.forms button {
+  padding: 4px 0;
+  width: 64px;
+  border-radius: 4px;
+  border: 1px solid #023047;
+  background-color: white;
+}
+
+.forms button:active {
+  position: relative;
+  left: 1px;
+  top: 1px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.input-container label {
+  font-size: 0.9rem;
+}
+
+.input-container input[type="month"] {
+  width: min-content;
+}
+
+.forms .export-pdf {
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  width: min-content;
+  padding: 8px 16px;
+  gap: 8px;
+  font-weight: 700;
+  margin-left: auto;
+}
+
+.scroll-container {
+  background-color: #ebeced;
+  overflow: hidden;
+  padding: 0;
+  cursor: grab;
+  flex: 1 0 530px;
+}
+
+.scroll-container:active {
+  cursor: grabbing;
+}
+
+.cv-preview-container {
+  height: 200%;
+  width: 200%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#cv-preview {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+  height: 29.7cm;
+  width: 21cm;
+  transform: scale(0.6);
+  overflow: hidden;
+  position: absolute;
+}
+
+#cv-preview .education-info, #cv-preview .work-info {
+  padding: 1cm;
+}
+
+#cv-preview .general-info {
+  position: relative;
+  background-color: #023047;
+  color: #ffffff;
+  padding: 1cm 1cm;
+}
+
+#cv-preview .general-info .buttons {
+  display: flex;
+  gap: 0.3cm;
+  position: absolute;
+  top: 1cm;
+  right: 1cm;
+}
+
+#cv-preview button {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0;
+}
+
+#cv-preview input {
+  display: block;
+  border: none;
+  outline: none;
+  border-radius: 0.2em;
+  padding: 0 0.1cm;
+}
+
+#cv-preview .education-info input, #cv-preview .work-info input {
+  outline: 1px solid black;
+}
+
+#cv-preview .person-name {
+  font-size: 28pt;
+  font-weight: bold;
+}
+
+#cv-preview .occupation {
+  font-size: 18pt;
+  font-weight: bold;
+  margin-bottom: 1cm;
+}
+
+#cv-preview .icon-and-text {
+  display: flex;
+  align-items: center;
+  gap: 0.3cm;
+}
+
+#cv-preview .data {
+  display: flex;
+  position: relative;
+}
+
+#cv-preview .data .buttons {
+  display: flex;
+  gap: 0.3cm;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#cv-preview .date {
+  margin-right: 1cm;
+}
+
+#cv-preview p, #cv-preview li, #cv-preview input {
+  font-size: 12pt;
+  margin: 0.2cm 0cm;
+}
+
+#cv-preview h2 {
+  font-size: 18pt;
+}
+
+#cv-preview .heading {
+  display: flex;
+  gap: 0.3cm;
+  margin-bottom: 0.3cm;
+}
+
+#cv-preview ul {
+  list-style-position: inside;
+  padding-left: 0.2cm;
+}
