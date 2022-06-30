@@ -2,6 +2,9 @@ import { Component } from "react";
 import CvPreview from "./cvPreview";
 import EducationForm from "./educationForm";
 import WorkForm from "./workForm";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
+import PDF_ICON from "../icons/pdf.svg";
 
 class CvGenerator extends Component {
   constructor(props) {
@@ -13,6 +16,7 @@ class CvGenerator extends Component {
     this.addNewInfo = this.addNewInfo.bind(this);
     this.deleteInfo = this.deleteInfo.bind(this);
     this.editInfo = this.editInfo.bind(this);
+    this.exportPdf = this.exportPdf.bind(this);
   }
 
   addNewInfo(type, obj) {
@@ -39,12 +43,28 @@ class CvGenerator extends Component {
     });
   }
 
+  exportPdf() {
+    const input = document.getElementById('cv-preview');
+    input.style.transform = 'scale(1)';
+    html2canvas(input).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF();
+      pdf.addImage(imgData, 'JPEG', 0, 0);
+      pdf.save("cv.pdf");
+    });
+    input.style.removeProperty('transform');
+  }
+
   render() {
     return (
       <main>
         <div className="forms">
           <EducationForm addNewInfo={this.addNewInfo} />
           <WorkForm addNewInfo={this.addNewInfo} />
+          <button type="button" className="export-pdf" onClick={this.exportPdf}>
+            <p>Export</p>
+            <img width="24px" height="24px" src={PDF_ICON} alt="Export as PDF" />
+          </button>
         </div>
         <CvPreview educationInfo={this.state.educationInfo} workInfo={this.state.workInfo} deleteInfo={this.deleteInfo} editInfo={this.editInfo} />
       </main>

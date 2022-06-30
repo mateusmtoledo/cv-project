@@ -47,9 +47,6 @@ main {
   margin-bottom: 8px;
   font-size: 1.2rem;
 }
-.forms p {
-  margin-bottom: 8px;
-}
 
 .forms .buttons {
   display: flex;
@@ -74,6 +71,7 @@ main {
 .input-container {
   display: flex;
   flex-direction: column;
+  margin-bottom: 8px;
 }
 
 .input-container label {
@@ -82,6 +80,17 @@ main {
 
 .input-container input[type="month"] {
   width: min-content;
+}
+
+.forms .export-pdf {
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  width: min-content;
+  padding: 8px 16px;
+  gap: 8px;
+  font-weight: 700;
+  margin-left: auto;
 }
 
 .scroll-container {
