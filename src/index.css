@@ -147,7 +147,6 @@ main {
   height: 29.7cm;
   width: 21cm;
   transform: scale(0.6);
-  overflow: hidden;
   position: absolute;
 }
 

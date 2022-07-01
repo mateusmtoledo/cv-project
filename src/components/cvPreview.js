@@ -15,6 +15,10 @@ class CvPreview extends Component {
   }
 
   componentDidMount() {
+    window.requestAnimationFrame(this.centerScroller);
+  }
+
+  centerScroller() {
     const scroller = document.querySelector('.scroll-container');
     scroller.scrollTop = (scroller.scrollHeight / 4);
     scroller.scrollLeft = (scroller.scrollWidth / 4);
