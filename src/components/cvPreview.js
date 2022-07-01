@@ -8,38 +8,64 @@ class CvPreview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      scale: 0.6,
+      scale: 0.7,
     }
-    this.cvPreviewElement = React.createRef();
+    this.previewContainer = React.createRef();
+    this.previewElement = React.createRef();
     this.zoom = this.zoom.bind(this);
+    this.resizeContainer = this.resizeContainer.bind(this);
+    this.centerScroller = this.centerScroller.bind(this);
   }
 
   componentDidMount() {
-    window.requestAnimationFrame(this.centerScroller);
+    window.requestAnimationFrame(() => {
+      this.resizeContainer();
+      this.centerScroller();
+      window.addEventListener('resize', this.resizeContainer);
+    });
   }
 
   centerScroller() {
-    const scroller = document.querySelector('.scroll-container');
-    scroller.scrollTop = (scroller.scrollHeight / 4);
-    scroller.scrollLeft = (scroller.scrollWidth / 4);
+    const scrollContainer = document.querySelector('.scroll-container');
+    const scrollContainerWidth = scrollContainer.getBoundingClientRect().width;
+    const scrollContainerHeight = scrollContainer.getBoundingClientRect().height;
+    const previewHeight = this.previewElement.current.getBoundingClientRect().height;
+    const previewWidth = this.previewElement.current.getBoundingClientRect().width;
+    scrollContainer.scrollTop = (scrollContainerHeight - previewHeight) / 2;
+    scrollContainer.scrollLeft = (scrollContainerWidth - previewWidth) / 2;
+  }
+
+  resizeContainer() {
+    const scrollContainer = document.querySelector('.scroll-container');
+    const scrollContainerWidth = scrollContainer.getBoundingClientRect().width;
+    const scrollContainerHeight = scrollContainer.getBoundingClientRect().height;
+    const previewHeight = this.previewElement.current.getBoundingClientRect().height;
+    const previewWidth = this.previewElement.current.getBoundingClientRect().width;
+    this.previewContainer.current.style.width = previewWidth < scrollContainerWidth
+        ? `${Math.ceil(2 * scrollContainerWidth - previewWidth)}px`
+        : `${Math.floor(previewWidth)}px`;
+    this.previewContainer.current.style.height = previewHeight < scrollContainerHeight
+        ? `${Math.ceil(2 * scrollContainerHeight - previewHeight)}px`
+        : `${Math.floor(previewHeight)}px`
   }
 
   zoom(event) {
-    const element = this.cvPreviewElement.current;
     let newScale = this.state.scale;
     newScale += event.deltaY * -0.002;
-    newScale = Math.min(Math.max(0.3, newScale), 1.185);
+    if(newScale < 0.1 || newScale > 3) return;
+    const element = this.previewElement.current;
     this.setState({
       scale: newScale,
     });
     element.style.transform = `scale(${newScale})`;
+    this.resizeContainer();
   }
 
   render() {
     return (
     <ScrollContainer className="scroll-container" ignoreElements="input, button">
-      <div className="cv-preview-container" onWheel={this.zoom}>
-        <div id="cv-preview" ref={this.cvPreviewElement}>
+      <div className="cv-preview-container" onWheel={this.zoom} ref={this.previewContainer}>
+        <div id="cv-preview" ref={this.previewElement}>
           <GeneralInformation exportMode={this.props.exportMode} />
           <Education
             educationInfo={this.props.educationInfo}
