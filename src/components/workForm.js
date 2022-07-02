@@ -35,12 +35,12 @@ class WorkForm extends Component {
       <form className="education-form" onSubmit={this.handleSubmit}>
         <h2>Add Work Experience</h2>
         <p className="input-container">
-          <label htmlFor="start-date">Start Date</label>
-          <input name="startDate" value={this.state.startDate} type="month" id="start-date" onChange={this.handleChange} required />
+          <label htmlFor="job-start-date">Start Date</label>
+          <input name="startDate" value={this.state.startDate} type="month" id="job-start-date" onChange={this.handleChange} required />
         </p>
         <p className="input-container">
-          <label htmlFor="end-date">End Date</label>
-          <input name="endDate" value={this.state.endDate} type="month" id="end-date" onChange={this.handleChange} required />
+          <label htmlFor="job-end-date">End Date</label>
+          <input name="endDate" value={this.state.endDate} type="month" id="job-end-date" onChange={this.handleChange} required />
         </p>
         <p className="input-container">
           <label htmlFor="role">Role</label>
@@ -51,7 +51,6 @@ class WorkForm extends Component {
           <input name="company" value={this.state.company} type="text" id="company" onChange={this.handleChange} required />
         </p>
         <div className="buttons">
-          <button type="button">Clear</button>
           <button>Submit</button>
         </div>
       </form>

@@ -48,10 +48,9 @@ class EducationForm extends Component {
         </p>
         <p className="input-container">
           <label htmlFor="degree">Degree</label>
-          <input required name="degree" value={this.state.degree} type="text" id="degree" onChange={this.handleChange}></input>
+          <input required name="degree" value={this.state.degree} type="text" id="degree" onChange={this.handleChange} />
         </p>
         <div className="buttons">
-          <button type="button">Clear</button>
           <button>Submit</button>
         </div>
       </form>
