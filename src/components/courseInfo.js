@@ -5,8 +5,8 @@ class CourseInfo extends Component {
     if(this.props.edit) {
       return (
         <div className="course-info">
-          <input name="institution" className="institution" value={this.props.institution} onChange={this.props.handleChange} required />
-          <input name="degree" className="degree" value={this.props.degree} onChange={this.props.handleChange} required />
+          <input name="institution" className="institution" value={this.props.institution} onChange={this.props.handleChange} placeholder="Institution" required />
+          <input name="degree" className="degree" value={this.props.degree} onChange={this.props.handleChange} placeholder="Degree" required />
         </div>
       );
     } else {
