@@ -12,6 +12,7 @@ class EducationForm extends Component {
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.clearInputs = this.clearInputs.bind(this);
   }
 
   handleChange(event) {
@@ -28,6 +29,16 @@ class EducationForm extends Component {
       id: uniqid(),
     }
     this.props.addNewInfo('educationInfo', obj);
+    this.clearInputs();
+  }
+
+  clearInputs() {
+    this.setState({
+      startDate: '',
+      endDate: '',
+      institution: '',
+      degree: '',
+    });
   }
 
   render() {

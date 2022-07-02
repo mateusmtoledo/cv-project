@@ -12,6 +12,7 @@ class WorkForm extends Component {
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.clearInputs = this.clearInputs.bind(this);
   }
 
   handleChange(event) {
@@ -28,6 +29,16 @@ class WorkForm extends Component {
       id: uniqid(),
     }
     this.props.addNewInfo('workInfo', obj);
+    this.clearInputs();
+  }
+
+  clearInputs() {
+    this.setState({
+      startDate: '',
+      endDate: '',
+      company: '',
+      role: '',
+    });
   }
 
   render() {
